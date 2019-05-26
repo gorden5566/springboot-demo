@@ -2,6 +2,7 @@ package com.gorden5566.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -17,6 +18,16 @@ public class JsonController {
         JSONObject result = new JSONObject();
         result.put("code", 200);
         result.put("msg", msg);
+
+        return result;
+    }
+
+    @RequestMapping(value = "/post", method = RequestMethod.POST)
+    public JSONObject post(String msg) {
+        JSONObject result = new JSONObject();
+        result.put("code", 200);
+        result.put("msg", msg);
+        result.put("method", "post");
 
         return result;
     }
